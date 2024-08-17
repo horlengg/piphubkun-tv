@@ -22,8 +22,6 @@ export const useVideoPlayer = ()=>{
     let restartShowPlayPrevId:any = 0;
     let restartShowPlayNextId:any = 0;
     let restartShowPlayStatusId:any = 0;
-    let clickVideoTimeOutId:any = 0;
-    let clickVideoCountTime = 0;
     
     const formatTime = (seconds:number | undefined)=>{
         if(!seconds) return "00:00";
@@ -118,7 +116,7 @@ export const useVideoPlayer = ()=>{
         },3000)
     }
 
-    const handleClickVideo = (e:MouseEvent) =>{
+    const handleClickVideo = (_:MouseEvent) =>{
         isShowVideoController.value = !isShowVideoController.value
         console.log("Hello");
         

@@ -4,14 +4,7 @@ import { VideoCardView } from "../types";
 withDefaults(defineProps<{
     video : VideoCardView,
     stickyWidth? : boolean
-}>(),{
-    video : {
-        title : "",
-        link : "",
-        image : '' 
-    },
-    stickyWidth : true
-})
+}>(),{})
 
 
 </script>

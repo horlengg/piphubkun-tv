@@ -7,7 +7,6 @@ withDefaults(defineProps<{
     videos : VideoCardView[]
 }>(),{
     title : "",
-    videos : [],
 })
 
 </script>

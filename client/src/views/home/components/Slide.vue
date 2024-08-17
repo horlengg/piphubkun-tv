@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ArrowBackIcon from "@/app/assets/icons/arrow-back.svg"
-import { computed, onMounted, ref ,watch} from "vue";
+import { computed, onMounted, ref } from "vue";
 const files = import.meta.glob('@/app/assets/slides/**');
 
 const slides = ref<Array<string>>([]);

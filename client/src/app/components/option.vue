@@ -4,9 +4,7 @@ import { OptionItem } from '../types';
 
 withDefaults(defineProps<{
     items : OptionItem[]
-}>(),{
-    items : []
-})
+}>(),{})
 const wrapperElement = ref<HTMLDivElement | null>(null);
 const optionElement = ref<HTMLDivElement | null>(null);
 
