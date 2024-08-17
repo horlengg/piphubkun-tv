@@ -146,7 +146,7 @@ export const useVideoPlayer = ()=>{
             if (!isFullScreenRequested.value) {
                 try {
                     await videoWrapperRef.value.requestFullscreen();
-                    await (screen.orientation as any).lock('landscape');
+                    if(!isClientUsingPc()) await (screen.orientation as any).lock('landscape');
                     isFullScreenRequested.value = true;
                 } catch (err) {
                     console.error("Failed to enter fullscreen or lock orientation:", err);
@@ -164,19 +164,22 @@ export const useVideoPlayer = ()=>{
         }
     };
     
-    const mouseMove = (e:MouseEvent)=>{
+    const mouseMoveOnScroll = (e:MouseEvent)=>{
         if(!scrollRef.value) return
         var clickX = e.clientX - scrollRef.value.getBoundingClientRect().left;
         timePopoverLeft.value = Math.round(clickX) + "px";
         timePopover.value = formatTime(getVideoCurrentTimeVideoFromEvent(e));
     }
+    const isClientUsingPc = ()=> window.innerWidth > 760;
     
     const load = ()=>{
         if(window.innerWidth > 760) setKeyboradVideoScroll()
         restartShowVideoController()
+        scrollRef.value?.addEventListener("mousemove",mouseMoveOnScroll)
     }
 
     return {
+        isClientUsingPc,
         toggleScreen,
         formatTime,
         getVideoCurrentTimeVideoFromEvent,
@@ -187,7 +190,6 @@ export const useVideoPlayer = ()=>{
         toggleMuteVideo,
         togglePlayVideo,
         videoTimeupdate,
-        mouseMove,
         restartShowVideoController,
         load,
         isPlaying,

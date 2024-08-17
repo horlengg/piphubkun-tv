@@ -24,6 +24,7 @@ const {
     totalTime,
     scrollActiveLength,
     isShowVideoController,
+    isClientUsingPc,
     scrollNext,
     scrollPrev,
     load,
@@ -57,6 +58,8 @@ const clickVideoWrapper = (e:MouseEvent)=>{
     restartShowVideoController()
 }
 
+
+
 onMounted(()=>{
     load()
 })
@@ -65,10 +68,12 @@ onMounted(()=>{
 <template>
     <div class="v-wrapper" ref="videoWrapperRef" @click="clickVideoWrapper">
         <video 
+            :class="{'fullscreen-view':isFullScreenRequested && isClientUsingPc()}"
             @loadedmetadata="videoPlayerLoad" 
             @timeupdate="videoTimeupdate" 
             ref="videoPlayerRef"
             @click="handleClickVideo"
+            @mouseover="restartShowVideoController"
         >
             <source :src="url" type='video/mp4'>
         </video>
@@ -176,11 +181,11 @@ onMounted(()=>{
     overflow: hidden;
     video {
         width: 100%;
-        // &.fullscreen-view {
-        //     position: absolute;
-        //     top: 50%;
-        //     transform: translateY(-50%);
-        // }
+        &.fullscreen-view {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
     .v-scroll-icon {
         position: absolute;
@@ -287,7 +292,7 @@ onMounted(()=>{
                         position: absolute;
                         display: inline-block;
                         top: 50%;
-                        right: 0px;
+                        right: -6px;
                         transform: translateY(-50%);
                         height: 12px;
                         width: 12px;
