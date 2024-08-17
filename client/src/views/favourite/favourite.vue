@@ -1,17 +1,81 @@
 <script setup lang="ts">
 import VideoCard from '@/app/components/video-card.vue';
 import { VideoCardView } from '@/app/types';
-import { onMounted, ref } from 'vue';
-const listVideo = ref<VideoCardView[]>([])
+import { ref } from 'vue';
 
-const fetchVideos = async () => {
-    const response = await fetch("/video.json");
-    if (response.ok) {
-        const data = await response.json()
-        listVideo.value = data.data.slice(0,2);
-    }
-}
-onMounted(fetchVideos)
+const listVideo = ref<VideoCardView[]>([
+    {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        },
+        {
+            "link" : "/drama/battle-through-the-heavens-5th-season",
+            "title" : "Battle Through the Heavens 5th Season",
+            "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+        }
+])
+
 
 </script>
 

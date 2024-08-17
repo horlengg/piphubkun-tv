@@ -2,19 +2,22 @@
 import { VideoCardView } from "../types";
 
 withDefaults(defineProps<{
-    video : VideoCardView,
+    video : VideoCardView | null,
     stickyWidth? : boolean
-}>(),{})
+}>(),{
+    video : null,
+    stickyWidth : true
+})
 
 
 </script>
 <template>
-    <router-link :to="video.link">
+    <router-link :to="video?.link!">
         <div class="video__card-wrapper animation-mode" :class="{'sticky-width':stickyWidth}">
-            <div class="block-image" :style="{backgroundImage : `url(${video.image})`}">
+            <div class="block-image" :style="{backgroundImage : `url(${video?.image})`}">
             </div>
             <div class="block-title">
-                <span>{{ video.title }}</span>
+                <span>{{ video?.title }}</span>
             </div>
         </div>
     </router-link>

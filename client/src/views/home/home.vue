@@ -1,22 +1,132 @@
 <script setup lang="ts">
 import { Drama } from "@/app/types";
 import VideoGroup from "@/app/components/video-group.vue"
-import { onMounted, ref } from "vue";
+import {  ref } from "vue";
 
 
-const dramas = ref<Drama[]>([])
+const dramas = ref<Drama[]>([
+    {
+            "category" : "Anime",
+            "dramas" : [
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Battle Through the Heavens 5th Season",
+                    "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Battle Through the Heavens 5th Season",
+                    "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Battle Through the Heavens 5th Season",
+                    "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Battle Through the Heavens 5th Season",
+                    "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Battle Through the Heavens 5th Season",
+                    "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Battle Through the Heavens 5th Season",
+                    "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Battle Through the Heavens 5th Season",
+                    "image" : "https://puui.wetvinfo.com/vcover_hz_pic/0/fc0jm32uyhpfqae1692700218430/0?imageMogr2/thumbnail/1400x"
+                }
+            ]
+        },
+        {
+            "category" : "Khmer Drama",
+            "dramas" : [
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Thida Thkol Meas",
+                    "image" : "https://i.malimarcdn.com/kh/KontungKhevHDF.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Thida Thkol Meas",
+                    "image" : "https://i.malimarcdn.com/kh/KontungKhevHDF.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Thida Thkol Meas",
+                    "image" : "https://i.malimarcdn.com/kh/KontungKhevHDF.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Thida Thkol Meas",
+                    "image" : "https://i.malimarcdn.com/kh/KontungKhevHDF.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Thida Thkol Meas",
+                    "image" : "https://i.malimarcdn.com/kh/KontungKhevHDF.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Thida Thkol Meas",
+                    "image" : "https://i.malimarcdn.com/kh/KontungKhevHDF.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "Thida Thkol Meas",
+                    "image" : "https://i.malimarcdn.com/kh/KontungKhevHDF.jpg"
+                }
+            ]
+        },
+        {
+            "category" : "Chinese Drama",
+            "dramas" : [
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "The Blood Of Youth",
+                    "image" : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjTPZhRvkYQld5tBCxLmNypo9_b0daZAYtJtn8356lfeKzY_9scUy7uPRziwXrw-gc-57-5VZX5CTBj1vbt14yDw4n1Hpu_2gtwyphZ8H1rL_GfQOB4yul4svnPtGNngrhz5TdO8h7R-Km/w1200-h675-p-k-no-nu/Broyut+Tov+Kan+Mekhea+%255BNew%255D.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "The Blood Of Youth",
+                    "image" : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjTPZhRvkYQld5tBCxLmNypo9_b0daZAYtJtn8356lfeKzY_9scUy7uPRziwXrw-gc-57-5VZX5CTBj1vbt14yDw4n1Hpu_2gtwyphZ8H1rL_GfQOB4yul4svnPtGNngrhz5TdO8h7R-Km/w1200-h675-p-k-no-nu/Broyut+Tov+Kan+Mekhea+%255BNew%255D.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "The Blood Of Youth",
+                    "image" : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjTPZhRvkYQld5tBCxLmNypo9_b0daZAYtJtn8356lfeKzY_9scUy7uPRziwXrw-gc-57-5VZX5CTBj1vbt14yDw4n1Hpu_2gtwyphZ8H1rL_GfQOB4yul4svnPtGNngrhz5TdO8h7R-Km/w1200-h675-p-k-no-nu/Broyut+Tov+Kan+Mekhea+%255BNew%255D.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "The Blood Of Youth",
+                    "image" : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjTPZhRvkYQld5tBCxLmNypo9_b0daZAYtJtn8356lfeKzY_9scUy7uPRziwXrw-gc-57-5VZX5CTBj1vbt14yDw4n1Hpu_2gtwyphZ8H1rL_GfQOB4yul4svnPtGNngrhz5TdO8h7R-Km/w1200-h675-p-k-no-nu/Broyut+Tov+Kan+Mekhea+%255BNew%255D.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "The Blood Of Youth",
+                    "image" : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjTPZhRvkYQld5tBCxLmNypo9_b0daZAYtJtn8356lfeKzY_9scUy7uPRziwXrw-gc-57-5VZX5CTBj1vbt14yDw4n1Hpu_2gtwyphZ8H1rL_GfQOB4yul4svnPtGNngrhz5TdO8h7R-Km/w1200-h675-p-k-no-nu/Broyut+Tov+Kan+Mekhea+%255BNew%255D.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "The Blood Of Youth",
+                    "image" : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjTPZhRvkYQld5tBCxLmNypo9_b0daZAYtJtn8356lfeKzY_9scUy7uPRziwXrw-gc-57-5VZX5CTBj1vbt14yDw4n1Hpu_2gtwyphZ8H1rL_GfQOB4yul4svnPtGNngrhz5TdO8h7R-Km/w1200-h675-p-k-no-nu/Broyut+Tov+Kan+Mekhea+%255BNew%255D.jpg"
+                },
+                {
+                    "link" : "/drama/battle-through-the-heavens-5th-season",
+                    "title" : "The Blood Of Youth",
+                    "image" : "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjTPZhRvkYQld5tBCxLmNypo9_b0daZAYtJtn8356lfeKzY_9scUy7uPRziwXrw-gc-57-5VZX5CTBj1vbt14yDw4n1Hpu_2gtwyphZ8H1rL_GfQOB4yul4svnPtGNngrhz5TdO8h7R-Km/w1200-h675-p-k-no-nu/Broyut+Tov+Kan+Mekhea+%255BNew%255D.jpg"
+                }
+            ]
+        }
+])
 
-const fetchDarama = async()=>{
-    const response = await fetch("/drama.json")
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    dramas.value = data.data ?? []
-    
-}
-
-onMounted(fetchDarama)
 
 </script>
 <template>
