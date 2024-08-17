@@ -1,0 +1,46 @@
+{
+    "data" : [
+        {
+            "name" :"MovieType",
+            "list" : [
+                {
+                    "title" : "All",
+                    "keyCode" : "all"
+                },
+                {
+                    "title" : "Anime",
+                    "keyCode" : "anime"
+                },
+                {
+                    "title" : "Hollywood",
+                    "keyCode" : "hollywood"
+                }
+            ]
+        },
+        {
+            "name" : "Regin",
+            "list" : [
+                {
+                    "title" : "All Region",
+                    "keyCode" : "all_region"
+                },
+                {
+                    "title" : "Khmer",
+                    "keyCode" : "kh"
+                },
+                {
+                    "title" : "English",
+                    "keyCode" : "en"
+                },
+                {
+                    "title" : "Chinese",
+                    "keyCode" : "cn"
+                },
+                {
+                    "title" : "Korea",
+                    "keyCode" : "kr"
+                }
+            ]
+        }
+    ]
+}
