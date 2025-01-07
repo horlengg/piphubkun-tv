@@ -1,7 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { API_BASE_URI } from "../app.config";
 import { ApiResponse } from "../types/http.type";
-import { useGlobalStore } from "../stores/global.store";
 
 interface ApiRequestConfig<T = any> extends AxiosRequestConfig<T> {
     showLoading? : boolean;

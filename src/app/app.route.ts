@@ -16,16 +16,16 @@ const routes: RouteRecordRaw[] = [
       name: 'Home',
       component: ()=> import('@/views/home/home.vue'),
     },
-    {
-      path: '/favourite',
-      name: 'Favourite',
-      component: ()=> import('@/views/favourite/favourite.vue'),
-    },
-    {
-      path: '/explore',
-      name: 'Explore',
-      component: ()=> import('@/views/explore/explore.vue'),
-    },
+    // {
+    //   path: '/favourite',
+    //   name: 'Favourite',
+    //   component: ()=> import('@/views/favourite/favourite.vue'),
+    // },
+    // {
+    //   path: '/explore',
+    //   name: 'Explore',
+    //   component: ()=> import('@/views/explore/explore.vue'),
+    // },
     {
       path: '/drama/:dramaId',
       name: 'Drama',
