@@ -4,6 +4,7 @@ import DramaPreviewCard from "@/app/components/drama-preview-card.vue"
 import DramaFilter from "./components/drama-filter.vue";
 import { useGlobalStore } from "@/app/stores/global.store";
 import { useDramaStore } from "@/app/stores/drama.store";
+import NotFoundIcon from "@/app/assets/images/not-found.png"
 
 const globalStore = useGlobalStore()
 const dramaStore = useDramaStore()
@@ -42,11 +43,23 @@ const handleFilterDrama = ({categoryId,regionId}:{
                 <drama-preview-card :drama="drama"/>
             </template>
         </div>
-        <p style="font-size: 20px;" v-if="!dramaStore.getDramaListFilter(filter).length">No drama found!.🤦‍♀️</p>
+        <p 
+            class="no-drama-msg"
+            v-if="!globalStore.showGlobalLoading && !dramaStore.getDramaListFilter(filter).length"
+        >
+            No drama found!.
+            <img :src="NotFoundIcon" alt="icon" width="25px">
+        </p>
     </div>
 </template>
 
 <style lang="scss" scoped>
+.no-drama-msg {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .drama-list {
     display: grid;
     grid-template-columns: repeat(6,1fr);

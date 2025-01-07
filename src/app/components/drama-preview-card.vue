@@ -28,7 +28,7 @@ defineProps<{
     overflow: hidden;
     width: 100%;
     .card-image-wr {
-        background-color: red;
+        background-color: #000;
         position: relative;
         overflow: hidden;
         border-radius: 10px 10px 0 0;
