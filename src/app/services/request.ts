@@ -29,7 +29,6 @@ class Http {
         this.instance.interceptors.response.use(
             (response: AxiosResponse) => {
                 // Handle successful response
-                console.log("Response:", response);
                 return response;
             },
             (error: AxiosError) => {

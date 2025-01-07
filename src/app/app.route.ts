@@ -27,7 +27,7 @@ const routes: RouteRecordRaw[] = [
     //   component: ()=> import('@/views/explore/explore.vue'),
     // },
     {
-      path: '/drama/:dramaId',
+      path: '/drama/:dramaId/:epsNo?',
       name: 'Drama',
       component: ()=> import('@/views/drama/drama.vue'),
     },

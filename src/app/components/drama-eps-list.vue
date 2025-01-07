@@ -6,13 +6,10 @@ import { DRAMA_STATUS_MAP } from "../helpers/drama-status.map";
 
 defineProps<{
     dramaEpisode : DramaEpisodeType,
+    currentEpisodeNo : number
 }>()
 
 const route = useRoute()
-const currentEpisodeIdModel = defineModel({
-    type : String
-})
-
 
 </script>
 
@@ -31,26 +28,25 @@ const currentEpisodeIdModel = defineModel({
                 </span>
             </div>
         </div>
-        <div class="list-eps tvkh-scrollbar">
+        <div class="list-eps animation-mode tvkh-scrollbar">
             <p v-if="!dramaEpisode.episodes.length" class="no-episode-msg">No episode released</p>
             <template v-for="(episode) of dramaEpisode.episodes" :key="episode.id">
-                <router-link :to="`/drama/${route.params.dramaId}`">
+                <router-link :to="`/drama/${route.params.dramaId}/${episode.episodeNo}`">
                     <div 
                         class="d-eps-card animation-mode" 
-                        :class="{'active':currentEpisodeIdModel == episode.id}"
-                        @click="currentEpisodeIdModel = episode.id"
+                        :class="{'active':currentEpisodeNo == episode.episodeNo}"
                     >
                         <div class="d-card-img" :style="{backgroundImage : `url('${dramaEpisode.drama.thumbnailUrl}')`}">
                         </div>
                         <div class="d-card-body">
                             <h5 class="d-eps-title">{{ episode.title }}</h5>
                             <div class="other-eps-info">
-                                <span class="d-eps-eps-title">
+                                <p class="d-eps-eps-title">
                                     Eps {{ episode.episodeNo }} - {{ dramaEpisode.drama.title }}
-                                </span>
-                                <span class="d-eps-released">
-                                    Multiple subtitles - {{ getEpsiodeReleaseDateFormat(episode.releasedDate) }}
-                                </span>
+                                </p>
+                                <p class="d-eps-released">
+                                    <span>Multiple subtitles</span> <span>{{ getEpsiodeReleaseDateFormat(episode.releasedDate) }}</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -93,12 +89,15 @@ const currentEpisodeIdModel = defineModel({
     }
 }
 .list-eps {
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     gap: 10px;
     height: 430px;
     overflow-y: auto;
-    border: .1px solid var(--border-color);
+    border-top: .1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+
 }
 
 .d-eps-card {
@@ -110,17 +109,17 @@ const currentEpisodeIdModel = defineModel({
     cursor: pointer;
     &.active,
     &:hover {
-        background-color: var(--bg-color);
-        box-shadow: var(--card-shadow);
+        background-color: var(--eps-card-hover-color);
+        // box-shadow: var(--card-shadow);
     }
     .d-card-img {
-        flex: .3;
+        width: 130px;
         height: 70px;
         background-position: center;
         background-size: cover;
     }
     .d-card-body {
-        flex: .7;
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 3px;
@@ -139,9 +138,12 @@ const currentEpisodeIdModel = defineModel({
             .d-eps-released {
                 font-size: var(--font-size-sm);
                 opacity: .8;
+                margin-top: 5px;
             }
             .d-eps-released {
-                display: inline-block;
+                margin-top: 5px;
+                display: flex;
+                justify-content: space-between;
             }
         }
     }

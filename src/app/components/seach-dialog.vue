@@ -36,6 +36,13 @@ onMounted(async()=>{
 <template>
     <Dialog v-model="globalStore.showSearchDialog" dialog-class="searchbox-dialog">
         <div class="search-box-content">
+            <div class="dialog-content-header">
+                <button class="btn-close-dialog" @click="globalStore.showSearchDialog = false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
             <div class="search-input-wr">
                 <div class="search-box">
                     <span class="search-icon">
@@ -64,12 +71,30 @@ onMounted(async()=>{
 </template>
 
 <style scoped lang="scss">
-
 .search-box-content {
     height: 80vh;
     width: 500px;
     padding: 20px;
+    .dialog-content-header {
+        display: flex;
+        justify-content: flex-end;
+        .btn-close-dialog {
+            width: 35px;
+            height: 35px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: transparent;
+            color: var(--text-color);
+            transform: translate(0,-35px) !important;
+            display: none;
+            &:hover {
+                background-color: var(--eps-card-hover-color);
+            }
+        }
+    }
     .search-input-wr {
+        margin-top: 10px;
         height: 12%;
         .search-box {
             width: 100%;
@@ -168,12 +193,16 @@ onMounted(async()=>{
 }
 @media only screen and (max-width:500px){
     .search-box-content {
-        width: 100vw;
-        height: 100vh;
+        width: 94vw;
+        height: 85vh;
         padding: 50px 10px 20px 10px !important;
+        overflow: hidden !important;
         .search-result-wr {
             height: 85%;
             margin-top: 15px;
+        }
+        .btn-close-dialog {
+            display: flex !important;
         }
     }
 }
