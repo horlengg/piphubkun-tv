@@ -1,0 +1,76 @@
+<script setup lang="ts">
+import {  onMounted, ref } from "vue";
+import DramaPreviewCard from "@/app/components/drama-preview-card.vue"
+import DramaFilter from "./components/drama-filter.vue";
+import { useGlobalStore } from "@/app/stores/global.store";
+import { useDramaStore } from "@/app/stores/drama.store";
+
+const globalStore = useGlobalStore()
+const dramaStore = useDramaStore()
+const filter = ref({})
+
+
+onMounted(async()=>{
+    globalStore.showGlobalLoading = true
+    if(!dramaStore.isDramaFetched) {
+        await dramaStore.fetchData()
+    }
+    globalStore.showGlobalLoading = false
+    // FileService.getBlobFile("11fGyyazfv24bFfOr6_d6Rf3x_Wb_JJ2A")
+})
+const handleFilterDrama = ({categoryId,regionId}:{
+    categoryId: string
+    regionId: string 
+})=>{
+    // const params = new URLSearchParams()
+    // if(categoryId) params.append("categoryId", categoryId)
+    // if(regionId) params.append("regionId", regionId)
+    // if(params.size) fetchAllDrama(`?${params.toString()}`)
+    filter.value = {
+        categoryId,
+        regionId
+    }
+}
+
+</script>
+<template>
+    <div class="home-page page-container">
+        <!-- <Slide /> -->
+        <drama-filter @filter="handleFilterDrama"/>
+        <div class="drama-list">
+            <template v-for="drama of dramaStore.getDramaListFilter(filter)">
+                <drama-preview-card :drama="drama"/>
+            </template>
+        </div>
+        <p style="font-size: 20px;" v-if="!dramaStore.getDramaListFilter(filter).length">No drama found!.🤦‍♀️</p>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+.drama-list {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+    // display: flex;
+    // flex-wrap: wrap;
+}
+@media screen and (max-width: 1200px) {
+    .drama-list {
+        grid-template-columns: repeat(5,1fr);
+        // padding: 0 30px;
+    }
+}
+@media screen and (max-width: 876px) {
+    .drama-list {
+        grid-template-columns: repeat(3,1fr);
+        // padding: 0 30px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .drama-list {
+        // padding: 0 10px;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+</style>

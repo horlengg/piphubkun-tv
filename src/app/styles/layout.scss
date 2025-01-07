@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--layout-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    font-size: var(--font-size-md);
+    transition: background-color .3s linear,color .3s linear;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &,
+    button,
+    input {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    &.no-scroll {
+        overflow: hidden;
+    }
+    *::-webkit-media-controls-panel {
+        display: none!important;
+        -webkit-appearance: none;
+      }
+      
+      /* Old shadow dom for play button */
+      
+      *::-webkit-media-controls-play-button {
+        display: none!important;
+        -webkit-appearance: none;
+      }
+      
+      /* New shadow dom for play button */
+      
+      /* This one works! */
+      
+      *::-webkit-media-controls-start-playback-button {
+        display: none!important;
+        -webkit-appearance: none;
+      }
+}
+
+.page-container {
+    // margin: 50px 100px 20px 100px;
+    margin-top: 50px;
+    overflow-x: hidden;
+}
+
+.animation-mode {
+    transition: var(--base-transition);
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.page-layout {
+    padding: 0 40px;
+}
+.d-video-card {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+#app {
+    margin: 0 100px;
+}
+@media screen and (max-width: 1280px) {
+    #app {
+        margin: 0 50px;
+    }
+    .page-layout {
+        padding: 0 20px;
+    }
+    .d-video-card {
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+}
+
+@media only screen and (max-width:760px){
+    #app {
+        margin: 0 10px;
+    }
+    .d-video-card {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .page-layout {
+        padding: 0 10px;
+    }
+}
+
+
+@media only screen and (max-width:400px) {
+
+}

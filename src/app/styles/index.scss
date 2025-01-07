@@ -1,0 +1,108 @@
+@import url("./__font-setup.scss");
+@import url("./__variable.scss");
+@import url("./layout.scss");
+@import url("./__input.scss");
+@import url("./__button.scss");
+// @import url("@/views/home/style/home.scss");
+
+// @media screen and (max-width: 1280px) {
+    
+// }
+// @media screen and (max-width: 760px) {
+    
+// }
+// @media screen and (max-width: 400px) {
+// }
+    
+.scroll-x {
+    overflow-x: auto;
+}
+.none-scroll-bar {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+.scroll-y {
+    overflow-y: auto;
+}
+.dialog.searchbox-dialog {
+    padding: 0 !important;
+}
+
+.tvkh-scrollbar {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(188, 187, 187);
+        border-radius: 20px;
+    }
+}
+.c-light {
+    color: #FFF;
+}
+
+.d-row {
+    display: flex;
+    align-items: center;
+}
+.gap-1 {
+    gap: 5px;
+}
+.gap-2 {
+    gap: 10px;
+}
+.gap-3 {
+    gap: 15px;
+}
+.gap-4 {
+    gap: 20px;
+}
+.gap-5 {
+    gap: 30px;
+}
+.gap-6 {
+    gap: 40px;
+}
+.px-1 {
+    padding: 0 5px;
+}
+.px-2 {
+    padding: 0 10px;
+}
+.px-3 {
+    padding: 0 15px;
+}
+.px-4 {
+    padding: 0 20px;
+}
+.px-5 {
+    padding: 0 30px;
+}
+.px-6 {
+    padding: 0 40px;
+}
+
+.fade-enter-active {
+    animation: __fadeIn .3s ease-in-out forwards;
+}
+.fade-leave-active {
+    animation: __fadeOut .3s ease-in-out forwards;
+}
+
+@keyframes __fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes __fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
