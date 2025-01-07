@@ -6,6 +6,7 @@ import { useGlobalStore } from '../stores/global.store';
 import { useDramaStore } from '../stores/drama.store';
 import { DramaType } from '../types/drama.type';
 import { useRouter } from 'vue-router';
+import { DRAMA_STATUS_MAP } from '../helpers/drama-status.map';
 
 const globalStore  = useGlobalStore()
 const searchBoxRef = ref<HTMLInputElement>()
@@ -20,6 +21,7 @@ const navigateToViewDrama = (drama:DramaType)=>{
 
 watchEffect(()=>{
     if(globalStore.showSearchDialog) searchBoxRef.value?.focus()
+    else dramaTitle.value = ""
 })
 
 onMounted(async()=>{
@@ -52,7 +54,7 @@ onMounted(async()=>{
                         <div class="drama-thimbnail" :style="{backgroundImage:`url('${drama.thumbnailUrl}')`}"> </div>
                         <div class="drama-info">
                             <h5>{{ drama.title }}</h5>
-                            <p>Eps : <span>120 ~ Opening</span></p>
+                            <p>Eps : <span>{{ drama.totalEpisode > 9 ? drama.totalEpisode : `0${drama.totalEpisode}` }} ~ {{ DRAMA_STATUS_MAP[drama.status] }}</span></p>
                         </div>
                     </li>
                 </ul>

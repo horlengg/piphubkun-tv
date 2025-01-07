@@ -52,9 +52,9 @@ onMounted(() => {
                         <img :src="DarkIcon" alt="icon" v-else>
                     </button>
                 </div>
-                <div class="auth-block">
+                <!-- <div class="auth-block">
                     <div class="user-profile"> </div>
-                </div>
+                </div> -->
             </nav>
         </div>
     </div>
@@ -73,7 +73,7 @@ onMounted(() => {
             align-items: center;
             gap: 20px;
             .app-logo {
-                background-image: url('/images/xiao yan.png');
+                background-image: url('/images/feng-xian-cycle.png');
                 background-position: center top;
                 background-size: cover;
                 width: 45px;
@@ -111,7 +111,7 @@ onMounted(() => {
                     width: 45px;
                     height: 45px;
                     border-radius: 50%;
-                    background-image: url('/images/feng-xian.jpg');
+                    background-image: url('/images/xiao-yan.png');
                     background-position: top center;
                     background-size: cover;
                 }

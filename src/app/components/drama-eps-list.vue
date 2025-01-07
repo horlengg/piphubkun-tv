@@ -23,8 +23,11 @@ const currentEpisodeIdModel = defineModel({
             <div class="drama-title">
                 <span class="main-title">{{ dramaEpisode.drama.title }}</span>
                 <span class="eps-detail">
-                    <span style="color: orange;">{{ DRAMA_STATUS_MAP[dramaEpisode.drama.status] }}</span> - 
-                    {{ dramaEpisode.episodes[0]?.episodeNo || 0 }} eps
+                    <template v-if="dramaEpisode.drama.status == 'ONGOING'">
+                        <span style="color: orange;">{{ DRAMA_STATUS_MAP[dramaEpisode.drama.status] }}</span> - 
+                        {{ dramaEpisode.episodes[0]?.episodeNo || 0 }} eps
+                    </template>
+                    <span style="color: orange;" v-else>{{ DRAMA_STATUS_MAP[dramaEpisode.drama.status] }}...</span> 
                 </span>
             </div>
         </div>
@@ -46,7 +49,7 @@ const currentEpisodeIdModel = defineModel({
                                     Eps {{ episode.episodeNo }} - {{ dramaEpisode.drama.title }}
                                 </span>
                                 <span class="d-eps-released">
-                                    Multiple subtitle - {{ getEpsiodeReleaseDateFormat(episode.releasedDate) }}
+                                    Multiple subtitles - {{ getEpsiodeReleaseDateFormat(episode.releasedDate) }}
                                 </span>
                             </div>
                         </div>
