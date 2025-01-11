@@ -5,14 +5,18 @@ import { computed, ref, watch } from "vue";
 import { DramaService } from "@/app/services/api/drama.service";
 import { DramaEpisodeType } from "@/app/types/drama.type";
 import EmojiIcon from "@/app/assets/images/emoji.png"
+import { useGlobalStore } from "@/app/stores/global.store";
 
 
 const route = useRoute()
 const dramaEpisode = ref<DramaEpisodeType>()
 const currentEpisodeNo = ref(0)
+const globalStore = useGlobalStore()
 const fetchDramaById = async (dramaId: string) => {
+    globalStore.showGlobalLoading = true
     dramaEpisode.value = undefined
     const response = await DramaService.retrieveDramaEpisodeById(dramaId)
+    globalStore.showGlobalLoading = false
     if (response) {
         dramaEpisode.value = response.data
         const lastEpisodeNo = dramaEpisode.value.episodes[0]?.episodeNo
@@ -29,7 +33,6 @@ const currentEpisode = computed(() => {
 watch(
     () => route.params.dramaId,
     (newDramaId) => {
-        console.log({newDramaId});
         if (newDramaId && typeof newDramaId === "string") {
             fetchDramaById(newDramaId); 
         }
@@ -38,8 +41,6 @@ watch(
 watch(
     () => route.params.epsNo,
     (newEpsNo) => {
-        console.log({newEpsNo});
-        
         if (newEpsNo && typeof newEpsNo === "string") {
             currentEpisodeNo.value = parseInt(newEpsNo, 10); 
         }
