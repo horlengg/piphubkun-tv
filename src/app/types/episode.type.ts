@@ -8,4 +8,6 @@ export interface EpisodeType extends BaseEntityType{
     isDeleted : string;
     releasedDate : string
     title : string
+    translatorResource : string
+    translateBy : string
 }

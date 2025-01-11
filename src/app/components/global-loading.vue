@@ -24,7 +24,7 @@ watchEffect(()=>{
 .loading-overlay {
     position: fixed;
     inset: 0;
-    background-color: var(--overlay-bg );
+    background-color: var(--overlay-bg);
     z-index: 1010;
 }
 .loader {
@@ -36,7 +36,7 @@ watchEffect(()=>{
     height: 48px;
     border-radius: 50%;
     display: inline-block;
-    border-top: 5px solid #FFF;
+    border-top: 5px solid rgb(26, 240, 18);
     border-right: 5px solid transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;

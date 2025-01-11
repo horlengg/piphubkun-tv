@@ -65,7 +65,19 @@ watch(
                 <img :src="EmojiIcon" alt="icon" width="40">
             </div>
             <div class="video-caption">
-                <h2>{{ currentEpisode?.title || dramaEpisode?.drama.title }}</h2>
+                <h2 class="episode-title">
+                    <span>{{ currentEpisode?.title}}</span>
+                    <template v-if="currentEpisode?.translateBy">
+                        by
+                        <a 
+                            :href="currentEpisode.translatorResource" 
+                            target="_blank" 
+                            class="transtator-link"
+                        >
+                            @{{ currentEpisode.translateBy }}
+                        </a>
+                    </template>
+                </h2>
                 <p v-if="currentEpisode">Eps - {{ currentEpisode?.episodeNo }} - {{
                     dramaEpisode?.drama.title.toLowerCase() }}</p>
                 <p>
@@ -126,12 +138,20 @@ watch(
                 line-height: 1.3;
                 font-size: var(--font-size-sm);
             }
+            .episode-title {
+                font-size: 22px;
+                font-weight: 600;
+            }
         }
     }
 
     .daram-list-eps {
         flex: .4;
     }
+}
+.transtator-link {
+    color: orange;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 1280px) {
