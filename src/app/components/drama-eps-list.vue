@@ -45,7 +45,9 @@ const route = useRoute()
                                     Eps {{ episode.episodeNo }} - {{ dramaEpisode.drama.title }}
                                 </p>
                                 <p class="d-eps-released">
-                                    <span>Multiple subtitles</span> <span>{{ getEpsiodeReleaseDateFormat(episode.releasedDate) }}</span>
+                                    <span v-if="!episode.translateBy">Multiple subtitles</span> 
+                                    <span else>Khmer Language</span> 
+                                    <span>{{ getEpsiodeReleaseDateFormat(episode.releasedDate) }}</span>
                                 </p>
                             </div>
                         </div>
@@ -129,17 +131,10 @@ const route = useRoute()
             font-weight: 500;
             font-size: 14px;
         }
-        .d-eps-eps-title {
-            font-weight: 400;
-            opacity: .8;
-        }
         .other-eps-info {
-            font-size: 10px;
-            .d-eps-released {
-                font-size: var(--font-size-sm);
-                opacity: .8;
-                margin-top: 5px;
-            }
+            font-size: 12px;
+            opacity: .8;
+            margin-top: 5px;
             .d-eps-released {
                 margin-top: 5px;
                 display: flex;
