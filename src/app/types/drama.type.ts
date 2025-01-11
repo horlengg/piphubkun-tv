@@ -10,8 +10,6 @@ export interface DramaType extends BaseEntityType {
     region : RegionType
     status : string
     totalEpisode : number,
-    lastEpisodeId : string,
-    lastEpisodeNo : number,
     categoryId : string,
     regionId : string
 }

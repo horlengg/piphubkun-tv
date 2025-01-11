@@ -29,21 +29,21 @@ export const useDramaStore = defineStore("useDramaStore.store",()=>{
         if(response){
           dramaList.value = response.data;
         }
-        isDramaFetched.value = true
     }
     const fetchAllCategories = async()=>{
-        const response = await CategoryService.retrieveCategory('categoryId=kxjajxaxaixaxmajxah')
+        const response = await CategoryService.retrieveCategory()
         if(response){
           categoryList.value = response.data;
         }
     }
     const fetchAllRegion = async()=>{
-        const response = await RegionService.retrieveRegions('categoryId=kxjajxaxaixaxmajxah')
+        const response = await RegionService.retrieveRegions()
         if(response){
             regionList.value = response.data;
         }
     }
     const fetchData = async()=>{
+      isDramaFetched.value = true
       await fetchAllDrama();
       await fetchAllCategories();
       await fetchAllRegion();

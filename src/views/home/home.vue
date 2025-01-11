@@ -12,21 +12,16 @@ const filter = ref({})
 
 
 onMounted(async()=>{
-    globalStore.showGlobalLoading = true
     if(!dramaStore.isDramaFetched) {
+        globalStore.showGlobalLoading = true
         await dramaStore.fetchData()
+        globalStore.showGlobalLoading = false
     }
-    globalStore.showGlobalLoading = false
-    // FileService.getBlobFile("11fGyyazfv24bFfOr6_d6Rf3x_Wb_JJ2A")
 })
 const handleFilterDrama = ({categoryId,regionId}:{
     categoryId: string
     regionId: string 
 })=>{
-    // const params = new URLSearchParams()
-    // if(categoryId) params.append("categoryId", categoryId)
-    // if(regionId) params.append("regionId", regionId)
-    // if(params.size) fetchAllDrama(`?${params.toString()}`)
     filter.value = {
         categoryId,
         regionId
