@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { API_BASE_URI } from "../app.config";
 import { ApiResponse } from "../types/http.type";
+import { encrypt,decrypt } from "@/utils/encryption";
 
 interface ApiRequestConfig<T = any> extends AxiosRequestConfig<T> {
     showLoading? : boolean;
@@ -15,7 +16,13 @@ class Http {
         });
         this.instance.interceptors.request.use(
             (config: InternalAxiosRequestConfig) => {
-                // Add custom headers, authentication tokens, or modify config
+                if (config.data) {
+                    const ciphertext = encrypt(config.data);
+                    config.data = {
+                        data: ciphertext // Encrypted data is the payload being sent
+                    };
+                }
+                
                 return config;
             },
             (error: AxiosError) => {
@@ -24,11 +31,16 @@ class Http {
                 return Promise.reject(error);
             }
         );
+        
 
         // Attach response interceptor
         this.instance.interceptors.response.use(
             (response: AxiosResponse) => {
                 // Handle successful response
+                if(response.data){
+                    const data = decrypt(response.data)
+                    response.data =data
+                }
                 return response;
             },
             (error: AxiosError) => {

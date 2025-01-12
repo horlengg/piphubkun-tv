@@ -6,20 +6,21 @@ import { DramaService } from "@/app/services/api/drama.service";
 import { DramaEpisodeType } from "@/app/types/drama.type";
 import EmojiIcon from "@/app/assets/images/emoji.png"
 import { useGlobalStore } from "@/app/stores/global.store";
+import { getParamDetail } from "@/utils/params";
 
 
 const route = useRoute()
 const dramaEpisode = ref<DramaEpisodeType>()
 const currentEpisodeNo = ref(0)
 const globalStore = useGlobalStore()
-const fetchDramaById = async (dramaId: string) => {
+const fetchDramaById = async (code: string) => {
     globalStore.showGlobalLoading = true
     dramaEpisode.value = undefined
-    const response = await DramaService.retrieveDramaEpisodeById(dramaId)
+    const response = await DramaService.retrieveDramaEpisodeById(code)
     globalStore.showGlobalLoading = false
     if (response) {
         dramaEpisode.value = response.data
-        const lastEpisodeNo = dramaEpisode.value.episodes[0]?.episodeNo
+        const lastEpisodeNo = dramaEpisode.value?.episodes[0]?.episodeNo
         if(!currentEpisodeNo.value && lastEpisodeNo) {
             currentEpisodeNo.value = lastEpisodeNo
         }
@@ -29,23 +30,24 @@ const fetchDramaById = async (dramaId: string) => {
 const currentEpisode = computed(() => {
     return dramaEpisode.value?.episodes.find(e => e.episodeNo == currentEpisodeNo.value)
 })
+const scrollToTop = ()=>{
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 watch(
-    () => route.params.dramaId,
-    (newDramaId) => {
-        if (newDramaId && typeof newDramaId === "string") {
-            fetchDramaById(newDramaId); 
+    () => route.params.code,
+    (currCode,preCode) => {
+        scrollToTop()
+        if (typeof currCode === "string") {
+            const {code,epsNo} = getParamDetail(currCode)
+            if(epsNo) currentEpisodeNo.value = parseInt(epsNo)
+            if(typeof preCode === "string" && getParamDetail(preCode).code !== code) {
+                fetchDramaById(code)
+            }
+            else if(!preCode) fetchDramaById(code); 
         }
     }
-,{ immediate : true});
-watch(
-    () => route.params.epsNo,
-    (newEpsNo) => {
-        if (newEpsNo && typeof newEpsNo === "string") {
-            currentEpisodeNo.value = parseInt(newEpsNo, 10); 
-        }
-    }
-,{ immediate : true});
+,{ immediate : true });
 
 
 </script>

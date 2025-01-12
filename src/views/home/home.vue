@@ -5,6 +5,7 @@ import DramaFilter from "./components/drama-filter.vue";
 import { useGlobalStore } from "@/app/stores/global.store";
 import { useDramaStore } from "@/app/stores/drama.store";
 import NotFoundIcon from "@/app/assets/images/not-found.png"
+import http from "@/app/services/request";
 
 const globalStore = useGlobalStore()
 const dramaStore = useDramaStore()
@@ -17,6 +18,17 @@ onMounted(async()=>{
         await dramaStore.fetchData()
         globalStore.showGlobalLoading = false
     }
+    const request = {
+        username : "ly.houleng",
+        password : "PWD@111111111"
+    }
+    http.post("/",Array.from({length:3}).map(()=>request))
+    .then((response)=>{
+        console.log(response);
+    }).catch(error=>{
+        console.error(error)
+ 
+    })
 })
 const handleFilterDrama = ({categoryId,regionId}:{
     categoryId: string

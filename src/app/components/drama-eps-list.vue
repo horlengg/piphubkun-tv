@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { useRoute } from "vue-router";
 import { DramaEpisodeType } from "../types/drama.type";
 import { getEpsiodeReleaseDateFormat } from "@/utils/date-format";
 import { DRAMA_STATUS_MAP } from "../helpers/drama-status.map";
+import { getLinkParam } from "@/utils/params";
 
 defineProps<{
     dramaEpisode : DramaEpisodeType,
     currentEpisodeNo : number
 }>()
-
-const route = useRoute()
 
 </script>
 
@@ -31,7 +29,7 @@ const route = useRoute()
         <div class="list-eps animation-mode tvkh-scrollbar">
             <p v-if="!dramaEpisode.episodes.length" class="no-episode-msg">No episode released</p>
             <template v-for="(episode) of dramaEpisode.episodes" :key="episode.id">
-                <router-link :to="`/drama/${route.params.dramaId}/${episode.episodeNo}`">
+                <router-link :to="getLinkParam(dramaEpisode.drama.code,episode.episodeNo)">
                     <div 
                         class="d-eps-card animation-mode" 
                         :class="{'active':currentEpisodeNo == episode.episodeNo}"

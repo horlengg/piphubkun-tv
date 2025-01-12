@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getLinkParam } from "@/utils/params";
 import { DRAMA_STATUS_MAP } from "../helpers/drama-status.map";
 import { DramaType } from "../types/drama.type";
 defineProps<{
@@ -7,7 +8,7 @@ defineProps<{
 
 </script>
 <template>
-    <router-link :to="`/drama/${drama.id}`">
+    <router-link :to="getLinkParam(drama.code)">
         <div class="video__card-wrapper animation-mode">
             <span class="eps-no">Eps {{ drama.totalEpisode }}</span>
             <div class="card-image-wr">

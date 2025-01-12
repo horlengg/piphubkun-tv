@@ -4,6 +4,7 @@ import { EpisodeType } from "./episode.type"
 
 export interface DramaType extends BaseEntityType {
     title : string
+    code : string
     thumbnailUrl : string
     description : string
     category : CategoryType

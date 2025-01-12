@@ -14,9 +14,9 @@ export class DramaService {
             throw new Error("Couldn't retrieve drama!.")
         }
     }
-    static async retrieveDramaEpisodeById(dramaId: string){
+    static async retrieveDramaEpisodeById(code: string){
         try {
-            const response = await http.get<DramaEpisodeType>(`/drama/${dramaId}/episodes`)
+            const response = await http.post<DramaEpisodeType,any>(`/drama/list-episodes`,{ code })
             if(response.status === HttpStatusCode.Ok) return response.data
         } catch (error) {
             console.log(error);
