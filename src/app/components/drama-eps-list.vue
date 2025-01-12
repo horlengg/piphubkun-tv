@@ -45,8 +45,10 @@ const route = useRoute()
                                     Eps {{ episode.episodeNo }} - {{ dramaEpisode.drama.title }}
                                 </p>
                                 <p class="d-eps-released">
-                                    <span v-if="!episode.translateBy">Multiple subtitles</span> 
-                                    <span else>Khmer Language</span> 
+                                    <span v-if="!episode.translateBy">
+                                        {{ episode.title.toLowerCase().includes("english subtitle") ? 'English' : 'Multiple' }} subtitles
+                                    </span> 
+                                    <span v-else>Khmer Language</span> 
                                     <span>{{ getEpsiodeReleaseDateFormat(episode.releasedDate) }}</span>
                                 </p>
                             </div>
