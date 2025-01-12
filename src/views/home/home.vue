@@ -5,7 +5,6 @@ import DramaFilter from "./components/drama-filter.vue";
 import { useGlobalStore } from "@/app/stores/global.store";
 import { useDramaStore } from "@/app/stores/drama.store";
 import NotFoundIcon from "@/app/assets/images/not-found.png"
-import http from "@/app/services/request";
 
 const globalStore = useGlobalStore()
 const dramaStore = useDramaStore()
