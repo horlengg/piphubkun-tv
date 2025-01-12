@@ -18,17 +18,6 @@ onMounted(async()=>{
         await dramaStore.fetchData()
         globalStore.showGlobalLoading = false
     }
-    const request = {
-        username : "ly.houleng",
-        password : "PWD@111111111"
-    }
-    http.post("/",Array.from({length:3}).map(()=>request))
-    .then((response)=>{
-        console.log(response);
-    }).catch(error=>{
-        console.error(error)
- 
-    })
 })
 const handleFilterDrama = ({categoryId,regionId}:{
     categoryId: string
