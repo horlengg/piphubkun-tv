@@ -26,9 +26,9 @@ watchEffect(()=>{
 
 onMounted(async()=>{
     if(!dramaStore.isDramaFetched) {
-        globalStore.showGlobalLoading = true
+        // globalStore.showGlobalLoading = true
         await dramaStore.fetchData()
-        globalStore.showGlobalLoading = false
+        // globalStore.showGlobalLoading = false
     }
 })
 

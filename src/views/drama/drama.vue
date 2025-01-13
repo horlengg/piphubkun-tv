@@ -55,7 +55,7 @@ watch(
     <div class="page-drama">
         <div class="drama-video">
             <!-- <drama-video :url="currentEpisode.videoUrl" v-if="currentEpisode"/> -->
-            <div class="v-el-wrapper" v-if="dramaEpisode?.drama.status !== 'INCOMMING'">
+            <div class="v-el-wrapper" v-if="dramaEpisode?.drama.status !== 'UPCOMING'">
                 <iframe :src="currentEpisode?.videoUrl" allowfullscreen :title="currentEpisode?.title"
                     allow="fullscreen;">
                 </iframe>
