@@ -16,7 +16,7 @@ const router = useRouter()
 
 const navigateToViewDrama = (drama:DramaType)=>{
     globalStore.showSearchDialog = false
-    router.push(`/drama/${drama.id}`)
+    router.push(`/${drama.code}`)
 }
 
 watchEffect(()=>{
