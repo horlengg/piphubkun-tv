@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watchEffect } from 'vue';
+import { ref, watchEffect } from 'vue';
 import Dialog from './dialog.vue';
 import SearchIcon from "@/app/assets/icons/search.svg"
 import { useGlobalStore } from '../stores/global.store';
@@ -24,13 +24,7 @@ watchEffect(()=>{
     else dramaTitle.value = ""
 })
 
-onMounted(async()=>{
-    if(!dramaStore.isDramaFetched) {
-        // globalStore.showGlobalLoading = true
-        await dramaStore.fetchData()
-        // globalStore.showGlobalLoading = false
-    }
-})
+
 
 </script>
 <template>

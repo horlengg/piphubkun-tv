@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {  onMounted, ref } from "vue";
+import { ref } from "vue";
 import DramaPreviewCard from "@/app/components/drama-preview-card.vue"
 import DramaFilter from "./components/drama-filter.vue";
 import { useGlobalStore } from "@/app/stores/global.store";
@@ -10,14 +10,6 @@ const globalStore = useGlobalStore()
 const dramaStore = useDramaStore()
 const filter = ref({})
 
-
-onMounted(async()=>{
-    if(!dramaStore.isDramaFetched) {
-        globalStore.showGlobalLoading = true
-        await dramaStore.fetchData()
-        globalStore.showGlobalLoading = false
-    }
-})
 const handleFilterDrama = ({categoryId,regionId}:{
     categoryId: string
     regionId: string 
